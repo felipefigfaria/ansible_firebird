@@ -27,3 +27,7 @@
       apt:
         name: libicu-dev
         state: absent        
+
+    - name: Deletar Firebird
+      ansible.builtin.shell: |
+        rm -rf /tmp/Firebird-3.0.12.33787-0.amd64.tar.gz
