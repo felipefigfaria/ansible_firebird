@@ -1,0 +1,29 @@
+---
+- name: Desinstalar
+  hosts: all
+  become: yes
+  tasks:
+    - name: Desinstalar libncurses5
+      apt:
+        name: libncurses5
+        state: absent
+
+    - name: Desinstalar libtommath1
+      apt:
+        name: libtommath1
+        state: absent
+
+    - name: Desinstalar curl
+      apt:
+        name: curl
+        state: absent
+
+#    - name: Desinstalar tar
+#      apt:
+#        name: tar
+#        state: absent
+
+    - name: Desinstalar libicu-dev
+      apt:
+        name: libicu-dev
+        state: absent        
