@@ -44,10 +44,17 @@
         do ln -s ${TM}.1 `dirname ${LIB}`/${TM}.0;
         done;
         unset TM;
-    
-    - name: Download Firebird 3.0
-      ansible.builtin.get_url:
-        url: https://github.com/FirebirdSQL/firebird/releases/download/v3.0.12/Firebird-3.0.12.33787-0.amd64.tar.gz
-        dest: /tmp/Firebird-3.0.12.33787-0.amd64.tar.gz
 
-#    - name: Instalar Firebird
+    - name: Download e descompactação arquivo
+      ansible.builtin.shell:
+        cmd: curl -L https://github.com/FirebirdSQL/firebird/releases/download/v3.0.12/Firebird-3.0.12.33787-0.amd64.tar.gz | tar -zxC /tmp
+
+    # - name: Instalar Firebird
+    #   ansible.builtin.shell: echo | /tmp/Firebird-3.0.12.33787-0.amd64/install.sh
+    #   args:
+    #     executable: /bin/bash
+
+    - name: Rodar o script de instalação do Firebird
+      shell: echo | /tmp/Firebird-3.0.12.33787-0.amd64/install.sh
+      args:
+        executable: /bin/bash
