@@ -45,7 +45,7 @@
         done;
         unset TM;
     
-    - name: Download Firebird 3
+    - name: Download Firebird 3.0
       ansible.builtin.get_url:
         url: https://github.com/FirebirdSQL/firebird/releases/download/v3.0.12/Firebird-3.0.12.33787-0.amd64.tar.gz
         dest: /tmp/Firebird-3.0.12.33787-0.amd64.tar.gz
