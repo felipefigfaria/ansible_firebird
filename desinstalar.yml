@@ -1,6 +1,6 @@
 ---
 - name: Desinstalar
-  hosts: all
+  hosts: firebird
   become: yes
   tasks:
     - name: Desinstalar libncurses5
@@ -18,11 +18,6 @@
         name: curl
         state: absent
 
-#    - name: Desinstalar tar
-#      apt:
-#        name: tar
-#        state: absent
-
     - name: Desinstalar libicu-dev
       apt:
         name: libicu-dev
@@ -31,3 +26,7 @@
     - name: Deletar Firebird
       ansible.builtin.shell: |
         rm -rf /tmp/Firebird-3.0.12.33787-0.amd64
+
+    - name: Desinstalar Firebird
+      ansible.builtin.shell:
+        cmd: cd /opt/firebird/bin && yes 'masterkey' | /opt/firebird/bin/FirebirdUninstall.sh

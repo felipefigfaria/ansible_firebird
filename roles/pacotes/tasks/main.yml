@@ -1,0 +1,6 @@
+---
+  - name: Atualizar cache e pacotes no Ubuntu
+    ansible.builtin.apt:
+      update_cache: yes
+      upgrade: dist
+    when: ansible_facts['distribution'] == "Ubuntu"
