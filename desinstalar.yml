@@ -30,3 +30,7 @@
     - name: Desinstalar Firebird
       ansible.builtin.shell:
         cmd: cd /opt/firebird/bin && yes 'masterkey' | /opt/firebird/bin/FirebirdUninstall.sh
+
+    - name: Deletar security3_bkp.fdb
+      ansible.builtin.shell:
+        cmd: rm -rf /DATABASE/security3_bkp.fdb

@@ -37,3 +37,10 @@
     ansible.builtin.shell: 
       cmd: cd /tmp/Firebird-3.0.12.33787-0.amd64/ && yes 'masterkey' | /tmp/Firebird-3.0.12.33787-0.amd64/install.sh
   
+  - name: Habilitar serviço Firebird
+    ansible.builtin.shell: 
+      cmd: systemctl enable firebird-superserver.service
+
+  - name: Cópia do arquivo security.fdb para backup
+    ansible.builtin.shell:
+      cmd: cp /opt/firebird/security3.fdb /DATABASE/security3_bkp.fdb
